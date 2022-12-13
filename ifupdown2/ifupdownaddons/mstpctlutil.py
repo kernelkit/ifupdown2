@@ -93,7 +93,7 @@ class mstpctlutil(utilsBase):
             return
         try:
             utils.exec_command(
-                "%s batch -" % utils.mstpctl_cmd,
+                "%s --stdin" % utils.mstpctl_cmd,
                 stdin="\n".join(self.__batch)
             )
         except Exception:
