@@ -58,16 +58,12 @@ class mstpctl(Addon, moduleBase):
                 "new-attribute": "bridge-stp"
             },
             "mstpctl-treeprio": {
-                "help": "tree priority",
-                "default": "32768",
-                "validvals": [
-                    "0", "4096", "8192", "12288", "16384",
-                    "20480", "24576", "28672", "32768",
-                    "36864", "40960", "45056", "49152",
-                    "53248", "57344", "61440"
-                ],
+                "help": "Set priority of bridge MSTI.  Traditionally the bridge "
+                "priority is a multiple of 4096 and ranges from 0 to 15*4096 = 61440",
+                "default": "8",
+                "validrange": [ "0", "15" ],
                 "required": False,
-                "example": ["mstpctl-treeprio 32768"]
+                "example": ["mstpctl-treeprio 8"]
             },
             "mstpctl-ageing": {
                 "help": "ageing time",
@@ -178,17 +174,15 @@ class mstpctl(Addon, moduleBase):
                 ]
             },
             "mstpctl-treeportprio": {
-                "help": "Sets the <port>'s priority MSTI instance. "
-                        "The priority value must be a number between 0 and 240 "
-                        "and a multiple of 16.",
-                "default": "128",
-                "validvals": ["<interface-range-list-multiple-of-16>"],
-                "validrange": ["0", "240"],
+                "help": "Sets the <port>'s priority MSTI instance.  Traditionally the "
+                "port priority is a multiple of 16 and ranges from 0 to 15*16 = 240.",
+                "default": "8",
+                "validrange": ["0", "15"],
                 "jsonAttr": "treeportprio",
                 "required": False,
                 "example": [
-                    "under the bridge: mstpctl-treeportprio swp1=128 swp2=128",
-                    "under the port (recommended): mstpctl-treeportprio 128"
+                    "under the bridge: mstpctl-treeportprio swp1=8 swp2=8",
+                    "under the port (recommended): mstpctl-treeportprio 8"
                 ]
             },
             "mstpctl-hello": {

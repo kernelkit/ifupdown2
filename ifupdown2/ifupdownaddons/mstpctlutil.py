@@ -22,7 +22,7 @@ class mstpctlutil(utilsBase):
     """ This class contains helper methods to interact with mstpd using
     mstputils commands """
 
-    _DEFAULT_PORT_PRIO = '128'
+    _DEFAULT_PORT_PRIO = '8'
 
     _cache_fill_done = False
 
