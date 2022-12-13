@@ -1425,7 +1425,7 @@ class ifupdownMain:
                         if self.modules.get(mname):
                             continue
                         mpath = modules_dir + '/' + mname + '.py'
-                        if os.path.exists(mpath) and mpath not in failed_import:
+                        if mpath not in failed_import:
                             try:
                                 m = __import__(mname)
                                 mclass = getattr(m, mname)
